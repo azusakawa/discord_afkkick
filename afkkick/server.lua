@@ -6,14 +6,15 @@ RegisterServerEvent("ReadToKick")
 AddEventHandler("ReadToKick", function()
 	local discord = nil
     local discordid = nil
-	identifiers = GetNumPlayerIdentifiers(source)
 	
-	for i = 0, identifiers + 1 do
-        if GetPlayerIdentifier(source, i) ~= nil then
+	for i = 1, GetNumPlayerIdentifiers(source) do
+		if GetPlayerIdentifier(source, i) ~= nil then
             if string.match(GetPlayerIdentifier(source, i), "discord") then
 				discord = GetPlayerIdentifier(source, i)
-			else
-				DropPlayer(source, "請開啟 Discord 遊玩遊戲")
+				if discord == nil then
+					DropPlayer(source, "請開啟 Discord 遊玩遊戲")
+					break
+				end
             end
         end
     end
