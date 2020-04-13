@@ -1,7 +1,7 @@
-# Steam_Afkkick
+# Discord_Afkkick
 
 ## How to use it
-put steam 16 hex in server.lua
+put discord id in server.lua
 ```lua
 local discordID = {
 	"discord:(id)",
